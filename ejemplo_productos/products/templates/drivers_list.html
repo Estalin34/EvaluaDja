@@ -7,13 +7,16 @@
 </head>
 <body>
     <h1>Formula 1 Drivers</h1>
-    <ul>
-        {% for driver in drivers %}
-        <li>
-            <a href="{% url 'driver_detail' driver_id=driver.id %}">{{ driver.name }}</a>
-        </li>
-        {% endfor %}
-    </ul>
+   {% for driver in drivers %}
+<li>
+    {% if driver.id %}
+        <a href="{% url 'driver_detail' driver.id %}">{{ driver.name }}</a>
+    {% else %}
+        <span>Driver sin ID: {{ driver.name }}</span>
+    {% endif %}
+</li>
+{% endfor %}
+
 
     <div>
         <span>Page {{ page }} of {{ total_pages }}</span>

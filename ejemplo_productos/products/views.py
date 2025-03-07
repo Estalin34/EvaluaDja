@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from products.services import get_drivers, get_driver_by_id
+from products.services import get_drivers, get_driver_by_id 
+from products.models import Driver
 
 def driver_list(request):
     """Lista de conductores con paginación"""
